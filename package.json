@@ -1,0 +1,21 @@
+{
+  "name": "lol-app",
+  "version": "1.0.0",
+  "description": "Backend for League of Legends stats application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stack:up": "cd .localstack && sh ./up",
+    "stack:down": "cd .localstack && sh ./down"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gsparedes/lol-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gsparedes/lol-app/issues"
+  },
+  "homepage": "https://github.com/gsparedes/lol-app#readme"
+}
