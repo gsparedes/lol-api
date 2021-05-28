@@ -1,0 +1,4 @@
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });exports.shouldSkipAuth = void 0;require("source-map-support/register");
+
+const shouldSkipAuth = ({ method, path }) => method === 'GET' && path === '/status/_healthz';exports.shouldSkipAuth = shouldSkipAuth;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9oZWxwZXJzL2F1dGgudHMiXSwibmFtZXMiOlsic2hvdWxkU2tpcEF1dGgiLCJtZXRob2QiLCJwYXRoIl0sIm1hcHBpbmdzIjoiOztBQUVPLE1BQU1BLGNBQWMsR0FBRyxDQUFDLEVBQUNDLE1BQUQsRUFBU0MsSUFBVCxFQUFELEtBQThCRCxNQUFNLEtBQUssS0FBWCxJQUFvQkMsSUFBSSxLQUFLLGtCQUFsRixDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtSZXF1ZXN0fSBmcm9tICdleHByZXNzJztcblxuZXhwb3J0IGNvbnN0IHNob3VsZFNraXBBdXRoID0gKHttZXRob2QsIHBhdGh9OiBSZXF1ZXN0KSA9PiAobWV0aG9kID09PSAnR0VUJyAmJiBwYXRoID09PSAnL3N0YXR1cy9faGVhbHRoeicpO1xuIl19

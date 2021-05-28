@@ -1,0 +1,8 @@
+"use strict";require("source-map-support/register");var _dotenv = require("dotenv");
+var _path = require("path");
+
+const ENV_FILE_PATH = (0, _path.resolve)(__dirname, './.env');
+
+
+(0, _dotenv.config)({ path: ENV_FILE_PATH });
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9lbnYudHMiXSwibmFtZXMiOlsiRU5WX0ZJTEVfUEFUSCIsIl9fZGlybmFtZSIsInBhdGgiXSwibWFwcGluZ3MiOiJvREFBQTtBQUNBOztBQUVBLE1BQU1BLGFBQWEsR0FBRyxtQkFBUUMsU0FBUixFQUFtQixRQUFuQixDQUF0Qjs7O0FBR0Esb0JBQU8sRUFBQ0MsSUFBSSxFQUFFRixhQUFQLEVBQVAiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge2NvbmZpZ30gZnJvbSAnZG90ZW52JztcbmltcG9ydCB7cmVzb2x2ZX0gZnJvbSAncGF0aCc7XG5cbmNvbnN0IEVOVl9GSUxFX1BBVEggPSByZXNvbHZlKF9fZGlybmFtZSwgJy4vLmVudicpO1xuXG4vLyBTZXQgZW52aXJvbm1lbnQgdmFyaWFibGVzIGZyb20gLmVudiBmaWxlLCBpZiBwcmVzZW50XG5jb25maWcoe3BhdGg6IEVOVl9GSUxFX1BBVEh9KTtcbiJdfQ==

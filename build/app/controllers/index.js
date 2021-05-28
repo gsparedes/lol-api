@@ -1,0 +1,5 @@
+"use strict";require("source-map-support/register");var _config = _interopRequireDefault(require("../config"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+
+_config.default.get('/status/_healthz', (req, res) => res.sendStatus(200));
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9hcHAvY29udHJvbGxlcnMvaW5kZXgudHMiXSwibmFtZXMiOlsiYXBwIiwiZ2V0IiwicmVxIiwicmVzIiwic2VuZFN0YXR1cyJdLCJtYXBwaW5ncyI6Im9EQUFBLDJEOzs7QUFHQUEsZ0JBQUlDLEdBQUosQ0FBUSxrQkFBUixFQUE0QixDQUFDQyxHQUFELEVBQU1DLEdBQU4sS0FBY0EsR0FBRyxDQUFDQyxVQUFKLENBQWUsR0FBZixDQUExQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBhcHAgZnJvbSAnQC9hcHAvY29uZmlnJztcblxuLy8gSGVhbHRoIGNoZWNrIFRPRE8gTWF5YmUgb25seSBhbGxvdyBpbnRlcm5hbCBpcCBhZGRyZXNzZXNcbmFwcC5nZXQoJy9zdGF0dXMvX2hlYWx0aHonLCAocmVxLCByZXMpID0+IHJlcy5zZW5kU3RhdHVzKDIwMCkpO1xuIl19

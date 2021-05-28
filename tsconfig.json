@@ -1,0 +1,55 @@
+{
+    "compilerOptions": {
+      "skipLibCheck": true,
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "target": "es6",
+      "downlevelIteration": true,
+      "noImplicitAny": true,
+      "noImplicitThis": false,
+      "noUnusedLocals": false,
+      "noUnusedParameters": false,
+      "allowSyntheticDefaultImports": true,
+      "experimentalDecorators": true,
+      "resolveJsonModule": true,
+      "strict": true,
+      "declaration": true,
+      "noImplicitReturns": true,
+      "preserveConstEnums": true,
+      "preserveSymlinks": true,
+      "moduleResolution": "node",
+      "sourceMap": true,
+      "outDir": "build",
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["src/*"],
+        "@": ["src/"]
+      },
+      "plugins": [
+        {
+          "transform": "typescript-transform-paths",
+          "afterDeclarations": true
+        }
+      ],
+      "rootDir": "src",
+      "types": [
+        "bluebird",
+        "node"
+      ],
+      "lib": [
+        "esnext",
+        "dom"
+      ]
+    },
+    "exclude": [
+      "node_modules",
+      "build",
+      "src/**/*.ispec.ts",
+      "src/**/*.spec.ts",
+      "src/__tests__"
+    ],
+    "include": [
+      "src/**/*"
+    ]
+  }
+  

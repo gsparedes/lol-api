@@ -1,0 +1,45 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+      "tslint:recommended",
+      "tslint-config-security"
+    ],
+    "linterOptions": {
+      "exclude": [
+        "**/*.spec.ts",
+        "**/*.ispec.ts",
+        "src/__tests__/**/*.ts",
+        "src/logger.ts",
+        "src/typings/json.ts"
+      ]
+    },
+    "jsRules": {},
+    "rules": {
+      "no-any": true,
+      "quotemark": [true, "single", "avoid-escape", "avoid-template"],
+      "object-literal-sort-keys": false,
+      "max-classes-per-file": [true, 10],
+      "array-bracket-spacing": [true, "never"],
+      "object-curly-spacing": [true, "never"],
+      "no-trailing-whitespace": true,
+      "ordered-imports": false,
+      "member-access": false,
+      "variable-name": {
+        "options": [
+          "ban-keywords",
+          "check-format",
+          "allow-leading-underscore",
+          "allow-pascal-case",
+          "allow-snake-case",
+          "require-const-for-all-caps"
+        ]
+      },
+      "max-line-length": [ true, 240 ],
+      "no-duplicate-variable": true,
+      "no-console": [true, "warn"]
+    },
+    "rulesDirectory": [
+      "node_modules/tslint-eslint-rules/dist/rules"
+    ]
+  }
+  
