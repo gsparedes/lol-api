@@ -1,0 +1,13 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18.x
+    commands:
+      - npm install -g serverless
+      - npm install
+  build:
+    commands:
+      - echo Running serverless deploy for stage ${STAGE_NAME}
+      - doppler run --preserve-env -- serverless deploy --stage ${STAGE_NAME}

@@ -1,21 +1,44 @@
 {
-  "name": "lol-app",
+  "name": "lol-api",
   "version": "1.0.0",
-  "description": "Backend for League of Legends stats application",
-  "main": "index.js",
+  "description": "Lambdas for League of Legengs API",
+  "main": "handler.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "stack:up": "cd .localstack && sh ./up",
-    "stack:down": "cd .localstack && sh ./down"
+    "offline": "sh scripts/offline.sh",
+    "invoke": "sh scripts/invoke.sh",
+    "lint": "eslint lib/** functions/**",
+    "lint:fix": "eslint --fix lib/** functions/**"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gsparedes/lol-app.git"
+    "url": "https://github.com/gsparedes/lol-api"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gsparedes/lol-app/issues"
+  "engines": {
+    "node": "18.x",
+    "npm": "9.x"
   },
-  "homepage": "https://github.com/gsparedes/lol-app#readme"
+  "author": "Giancarlo Paredes <gcarloparedes@gmail.com>",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/gsparedes/lol-api#readme",
+  "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.236.0",
+    "lodash-es": "^4.17.21",
+    "moment": "^2.29.4",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-source-map-support": "^2.2.0",
+    "eslint": "^8.17.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "serverless": "^3.25.1",
+    "serverless-offline": "^12.0.4",
+    "serverless-offline-watcher": "^1.0.2",
+    "serverless-prune-plugin": "^2.0.1"
+  }
 }

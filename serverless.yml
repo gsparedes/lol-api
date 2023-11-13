@@ -1,0 +1,49 @@
+service: lol-api
+
+plugins:
+  - serverless-offline
+  - serverless-offline-watcher
+  - serverless-prune-plugin
+
+custom:
+  prune:
+    automatic: true
+    number: 3
+  cors:
+    origins: [
+      'https://localhost:3000',
+    ]
+    headers:
+      - Content-Type
+      - X-Amz-Date
+      - Authorization
+      - X-Api-Key
+      - X-Amz-Security-Token
+      - X-Amz-User-Agent
+    allowCredentials: true
+  serverless-offline-watcher:
+    - path:
+        - functions/*.js
+        - lib/*.js
+        - lib/**/*.js
+      command: echo "JS files were modified!"
+
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-west-2
+  stage: ${env:NODE_ENV}
+  timeout: 25
+  environment:
+    APP_NAME: ${self:service}
+    SECRETS_ID: lol-api
+
+functions:
+  helloWorld:
+    handler: functions/hello-world.handler
+    events:
+      - http:
+          path: /hello
+          method: get
+          cors: ${self:custom.cors}
