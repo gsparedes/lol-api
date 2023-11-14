@@ -38,6 +38,7 @@ provider:
   environment:
     APP_NAME: ${self:service}
     SECRETS_ID: lol-api
+    IS_LOCAL: ${env:IS_LOCAL}
 
 functions:
   helloWorld:
