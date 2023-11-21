@@ -25,6 +25,7 @@
     "@aws-sdk/client-secrets-manager": "^3.236.0",
     "lodash-es": "^4.17.21",
     "moment": "^2.29.4",
+    "mongodb": "^6.3.0",
     "node-fetch": "^3.3.2"
   },
   "devDependencies": {
