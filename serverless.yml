@@ -39,6 +39,8 @@ provider:
     APP_NAME: ${self:service}
     SECRETS_ID: lol-api
     IS_LOCAL: ${env:IS_LOCAL}
+    LOL_API_KEY: ${env:LOL_API_KEY}
+    LOL_API_ENDPOINT: ${env:LOL_API_ENDPOINT}
 
 functions:
   helloWorld:
@@ -46,5 +48,12 @@ functions:
     events:
       - http:
           path: /hello
+          method: get
+          cors: ${self:custom.cors}
+  getByRiotId:
+    handler: functions/get-by-riot-id.handler
+    events:
+      - http:
+          path: /by-riot-id
           method: get
           cors: ${self:custom.cors}
