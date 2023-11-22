@@ -29,11 +29,28 @@ export const handler = wrapLambdaHandler(async (event) => {
       path: `lol/champion-mastery/v4/champion-masteries/by-puuid/${pUUID}`,
     });
 
-    const championIDs = data.map((champion) => String(champion.championId));
+    const championsObj = {};
+    const championIDs = [];
+    data.forEach((champion) => {
+      const { championId } = champion;
+      championsObj[championId] = champion;
+      championIDs.push(String(championId));
+    });
     const mongoClient = getMongoDBClientInstance();
     const database = mongoClient.db(getConfig('MONGODB_DBNAME'));
     const collection = database.collection(getConfig('MONGODB_COLLECTION_NAME'));
     const champions = await collection.find({ key: { $in: championIDs } }).toArray();
+    champions.forEach((champion) => {
+      const { key } = champion;
+      const championObj = championsObj[key];
+      delete championObj.championId;
+      delete championObj.puuid;
+      delete championObj.summonerId;
+      // eslint-disable-next-line no-param-reassign
+      champion.playerMetadata = {
+        ...championObj,
+      };
+    });
 
     await setCache(cacheKey, champions, 10);
     return lambdaResponse(
