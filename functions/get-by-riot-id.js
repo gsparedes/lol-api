@@ -2,6 +2,7 @@ import { wrapLambdaHandler } from '../lib/lambda-handlers.js';
 import { lambdaResponse, REQUEST_LAMBDA_HANDLER_OPTIONS } from '../lib/utils.js';
 import { initializeEnvironment } from '../lib/initializeEnvironment.js';
 import { httpClient } from '../lib/http.js';
+import { get as getCache, set as setCache } from '../lib/redis.js';
 
 // Populate `process.env` with environment variables from AWS Secrets Manager.
 await initializeEnvironment();
@@ -9,16 +10,28 @@ await initializeEnvironment();
 export const handler = wrapLambdaHandler(async (event) => {
   const { headers: { origin }, queryStringParameters } = event;
   try {
-    const { gameName, tagTitle } = queryStringParameters;
+    const { gameName, tagTitle, region } = queryStringParameters;
+    const cacheKey = `${region}:${gameName}:${tagTitle}`;
+    const cachedData = await getCache(cacheKey);
+
+    if (cachedData) {
+      return lambdaResponse(
+        200,
+        cachedData,
+        origin,
+      );
+    }
+
     const data = await httpClient({
+      region,
       method: 'get',
       path: `riot/account/v1/accounts/by-riot-id/${gameName}/${tagTitle}`,
     });
 
+    await setCache(cacheKey, data, 10);
     return lambdaResponse(
       200,
       data,
-      { success: true },
       origin,
     );
   } catch (e) {

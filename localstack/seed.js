@@ -5,7 +5,7 @@ import champions from './champion.json' assert { type: 'json' };
 async function seedData() {
   const client = getMongoDBClientInstance();
   try {
-    const collectionName = 'champions';
+    const collectionName = getConfig('MONGODB_COLLECTION_NAME');
     const database = client.db(getConfig('MONGODB_DBNAME'));
     await database.createCollection(collectionName)
     const collection = database.collection(collectionName);

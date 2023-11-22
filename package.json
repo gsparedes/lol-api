@@ -23,6 +23,7 @@
   "homepage": "https://github.com/gsparedes/lol-api#readme",
   "dependencies": {
     "@aws-sdk/client-secrets-manager": "^3.236.0",
+    "ioredis": "^5.3.2",
     "lodash-es": "^4.17.21",
     "moment": "^2.29.4",
     "mongodb": "^6.3.0",
