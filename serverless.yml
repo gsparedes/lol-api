@@ -41,6 +41,7 @@ provider:
     IS_LOCAL: ${env:IS_LOCAL}
     LOL_API_KEY: ${env:LOL_API_KEY}
     LOL_API_ENDPOINT: ${env:LOL_API_ENDPOINT}
+    DATA_DRAGON_CDN: ${env:DATA_DRAGON_CDN}
     CACHE_NAMESPACE: ${env:CACHE_NAMESPACE}
     MONGODB_URI: ${env:MONGODB_URI}
     MONGODB_DBNAME: ${env:MONGODB_DBNAME}
@@ -66,5 +67,12 @@ functions:
     events:
       - http:
           path: /get-summoner-champions
+          method: get
+          cors: ${self:custom.cors}
+  getSummonerDetails:
+    handler: functions/get-summoner-details.handler
+    events:
+      - http:
+          path: /get-summoner-details
           method: get
           cors: ${self:custom.cors}
