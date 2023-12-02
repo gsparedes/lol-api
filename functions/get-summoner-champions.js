@@ -47,6 +47,8 @@ export const handler = wrapLambdaHandler(async (event) => {
       delete championObj.puuid;
       delete championObj.summonerId;
       // eslint-disable-next-line no-param-reassign
+      champion.avatar = `${getConfig('DATA_DRAGON_CDN')}/img/champion/${champion?.image?.full}`;
+      // eslint-disable-next-line no-param-reassign
       champion.playerMetadata = {
         ...championObj,
       };
