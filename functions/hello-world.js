@@ -1,5 +1,5 @@
 import { wrapLambdaHandler } from '../lib/lambda-handlers.js';
-import { lambdaResponse, REQUEST_LAMBDA_HANDLER_OPTIONS } from '../lib/utils.js';
+import { lambdaResponse } from '../lib/utils.js';
 import { initializeEnvironment } from '../lib/initializeEnvironment.js';
 
 // Populate `process.env` with environment variables from AWS Secrets Manager.
@@ -29,6 +29,6 @@ export const handler = wrapLambdaHandler(async (event) => {
       event.headers.origin,
     );
   }
-}, { ...REQUEST_LAMBDA_HANDLER_OPTIONS });
+});
 
 export default handler;
