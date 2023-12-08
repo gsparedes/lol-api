@@ -9,6 +9,12 @@ custom:
   prune:
     automatic: true
     number: 3
+  serverless-offline-watcher:
+    - path:
+        - functions/*.js
+        - lib/*.js
+        - lib/**/*.js
+      command: echo "JS files were modified!"
   cors:
     origins: [
       'https://localhost:3000',
@@ -21,31 +27,39 @@ custom:
       - X-Amz-Security-Token
       - X-Amz-User-Agent
     allowCredentials: true
-  serverless-offline-watcher:
-    - path:
-        - functions/*.js
-        - lib/*.js
-        - lib/**/*.js
-      command: echo "JS files were modified!"
-
+  lolAPISecrets: ${ssm:/aws/reference/secretsmanager/lol-api}
 
 provider:
   name: aws
   runtime: nodejs18.x
   region: us-west-2
-  stage: ${env:NODE_ENV}
+  stage: ${opt:stage, 'development'}
   timeout: 25
   environment:
     APP_NAME: ${self:service}
     SECRETS_ID: lol-api
     IS_LOCAL: ${env:IS_LOCAL}
-    LOL_API_KEY: ${env:LOL_API_KEY}
-    LOL_API_ENDPOINT: ${env:LOL_API_ENDPOINT}
-    DATA_DRAGON_CDN: ${env:DATA_DRAGON_CDN}
-    CACHE_NAMESPACE: ${env:CACHE_NAMESPACE}
-    MONGODB_URI: ${env:MONGODB_URI}
-    MONGODB_DBNAME: ${env:MONGODB_DBNAME}
-    MONGODB_COLLECTION_NAME: ${env:MONGODB_COLLECTION_NAME}
+    LOL_API_KEY: ${opt:lolApiKey, self:custom.lolAPISecrets.lolApiKey, env:LOL_API_KEY}
+    LOL_API_ENDPOINT: ${opt:lolApiEndpoint, self:custom.lolAPISecrets.lolApiEndpoint, env:LOL_API_ENDPOINT}
+    DATA_DRAGON_CDN: ${opt:dataDragonCdn, self:custom.lolAPISecrets.dataDragonCdn, env:DATA_DRAGON_CDN}
+    CACHE_NAMESPACE: ${opt:cacheNamespace, self:custom.lolAPISecrets.cacheNamespace, env:CACHE_NAMESPACE}
+    MONGODB_URI: ${opt:mongodbUri, self:custom.lolAPISecrets.mongodbUri, env:MONGODB_URI}
+    MONGODB_DBNAME: ${opt:mongodbDbName, self:custom.lolAPISecrets.mongodbDbName, env:MONGODB_DBNAME}
+    MONGODB_COLLECTION_NAME: ${opt:mongodbDbCollectionName, self:custom.lolAPISecrets.mongodbDbCollectionName,env:MONGODB_COLLECTION_NAME}
+  apiGateway:
+    restApiId: ${opt:restApiId, self:custom.lolAPISecrets.restApiId, null}
+    restApiRootResourceId: ${opt:restApiRootResourceId, self:custom.lolAPISecrets.restApiRootResourceId, null}
+  iam:
+    role: ${opt:defaultRoleArn, self:custom.lolAPISecrets.defaultRoleArn, null}
+  vpc:
+    subnetIds:
+      'Fn::Split':
+        - ','
+        - ${opt:defaultSubnetIds, self:custom.lolAPISecrets.defaultSubnetIds, ''}
+    securityGroupIds:
+      'Fn::Split':
+        - ','
+        - ${opt:defaultSecurityGroupIds, self:custom.lolAPISecrets.defaultSecurityGroupIds, ''}
 
 functions:
   helloWorld:

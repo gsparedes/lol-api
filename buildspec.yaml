@@ -10,4 +10,4 @@ phases:
   build:
     commands:
       - echo Running serverless deploy for stage ${STAGE_NAME}
-      - doppler run --preserve-env -- serverless deploy --stage ${STAGE_NAME}
+      - serverless deploy --stage ${STAGE_NAME}
