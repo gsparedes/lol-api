@@ -39,6 +39,8 @@ provider:
     APP_NAME: ${self:service}
     SECRETS_ID: lol-api
     IS_LOCAL: ${opt:isLocal, env:IS_LOCAL, false}
+    LAMBDA_AUTH_HEADER: ${opt:lambdaAuthHeader, self:custom.lolAPISecrets.lambdaAuthHeader, env:LAMBDA_AUTH_HEADER}
+    LAMBDA_AUTH_HEADER_VALUE: ${opt:lambdaAuthHeaderValue, self:custom.lolAPISecrets.lambdaAuthHeaderValue, env:LAMBDA_AUTH_HEADER_VALUE}
     LOL_API_KEY: ${opt:lolApiKey, self:custom.lolAPISecrets.lolApiKey, env:LOL_API_KEY}
     LOL_API_ENDPOINT: ${opt:lolApiEndpoint, self:custom.lolAPISecrets.lolApiEndpoint, env:LOL_API_ENDPOINT}
     DATA_DRAGON_CDN: ${opt:dataDragonCdn, self:custom.lolAPISecrets.dataDragonCdn, env:DATA_DRAGON_CDN}
