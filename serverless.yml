@@ -45,6 +45,7 @@ provider:
     LOL_API_ENDPOINT: ${opt:lolApiEndpoint, self:custom.lolAPISecrets.lolApiEndpoint, env:LOL_API_ENDPOINT}
     DATA_DRAGON_CDN: ${opt:dataDragonCdn, self:custom.lolAPISecrets.dataDragonCdn, env:DATA_DRAGON_CDN}
     CACHE_NAMESPACE: ${opt:cacheNamespace, self:custom.lolAPISecrets.cacheNamespace, env:CACHE_NAMESPACE}
+    CACHE_REDIS_HOST: ${opt:redisHost, self:custom.lolAPISecrets.redisHost,env:CACHE_REDIS_HOST}
     MONGODB_URI: ${opt:mongodbUri, self:custom.lolAPISecrets.mongodbUri, env:MONGODB_URI}
     MONGODB_DBNAME: ${opt:mongodbDbName, self:custom.lolAPISecrets.mongodbDbName, env:MONGODB_DBNAME}
     MONGODB_COLLECTION_NAME: ${opt:mongodbDbCollectionName, self:custom.lolAPISecrets.mongodbDbCollectionName,env:MONGODB_COLLECTION_NAME}
