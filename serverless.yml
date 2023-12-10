@@ -18,6 +18,7 @@ custom:
   cors:
     origins: [
       'https://localhost:3000',
+      'https://app.campeon.click',
     ]
     headers:
       - Content-Type
@@ -39,6 +40,7 @@ provider:
     APP_NAME: ${self:service}
     SECRETS_ID: lol-api
     IS_LOCAL: ${opt:isLocal, env:IS_LOCAL, false}
+    CORS_ALLOW_ORIGIN: ${opt:corsAllowOrigin, self:custom.lolAPISecrets.corsAllowOrigin, env:CORS_ALLOW_ORIGIN}
     LAMBDA_AUTH_HEADER: ${opt:lambdaAuthHeader, self:custom.lolAPISecrets.lambdaAuthHeader, env:LAMBDA_AUTH_HEADER}
     LAMBDA_AUTH_HEADER_VALUE: ${opt:lambdaAuthHeaderValue, self:custom.lolAPISecrets.lambdaAuthHeaderValue, env:LAMBDA_AUTH_HEADER_VALUE}
     LOL_API_KEY: ${opt:lolApiKey, self:custom.lolAPISecrets.lolApiKey, env:LOL_API_KEY}
