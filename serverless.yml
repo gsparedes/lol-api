@@ -27,6 +27,7 @@ custom:
       - X-Api-Key
       - X-Amz-Security-Token
       - X-Amz-User-Agent
+      - api-lambda-auth
     allowCredentials: true
   lolAPISecrets: ${ssm:/aws/reference/secretsmanager/lol-api}
 
