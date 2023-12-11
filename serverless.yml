@@ -41,17 +41,17 @@ provider:
     APP_NAME: ${self:service}
     SECRETS_ID: lol-api
     IS_LOCAL: ${opt:isLocal, env:IS_LOCAL, false}
-    CORS_ALLOW_ORIGIN: ${opt:corsAllowOrigin, self:custom.lolAPISecrets.corsAllowOrigin, env:CORS_ALLOW_ORIGIN}
-    LAMBDA_AUTH_HEADER: ${opt:lambdaAuthHeader, self:custom.lolAPISecrets.lambdaAuthHeader, env:LAMBDA_AUTH_HEADER}
-    LAMBDA_AUTH_HEADER_VALUE: ${opt:lambdaAuthHeaderValue, self:custom.lolAPISecrets.lambdaAuthHeaderValue, env:LAMBDA_AUTH_HEADER_VALUE}
-    LOL_API_KEY: ${opt:lolApiKey, self:custom.lolAPISecrets.lolApiKey, env:LOL_API_KEY}
-    LOL_API_ENDPOINT: ${opt:lolApiEndpoint, self:custom.lolAPISecrets.lolApiEndpoint, env:LOL_API_ENDPOINT}
-    DATA_DRAGON_CDN: ${opt:dataDragonCdn, self:custom.lolAPISecrets.dataDragonCdn, env:DATA_DRAGON_CDN}
-    CACHE_NAMESPACE: ${opt:cacheNamespace, self:custom.lolAPISecrets.cacheNamespace, env:CACHE_NAMESPACE}
-    CACHE_REDIS_HOST: ${opt:redisHost, self:custom.lolAPISecrets.redisHost,env:CACHE_REDIS_HOST}
-    MONGODB_URI: ${opt:mongodbUri, self:custom.lolAPISecrets.mongodbUri, env:MONGODB_URI}
-    MONGODB_DBNAME: ${opt:mongodbDbName, self:custom.lolAPISecrets.mongodbDbName, env:MONGODB_DBNAME}
-    MONGODB_COLLECTION_NAME: ${opt:mongodbDbCollectionName, self:custom.lolAPISecrets.mongodbDbCollectionName,env:MONGODB_COLLECTION_NAME}
+    CORS_ALLOW_ORIGIN: ${opt:corsAllowOrigin, env:CORS_ALLOW_ORIGIN, self:custom.lolAPISecrets.corsAllowOrigin}
+    LAMBDA_AUTH_HEADER: ${opt:lambdaAuthHeader, env:LAMBDA_AUTH_HEADER, self:custom.lolAPISecrets.lambdaAuthHeader}
+    LAMBDA_AUTH_HEADER_VALUE: ${opt:lambdaAuthHeaderValue, env:LAMBDA_AUTH_HEADER_VALUE, self:custom.lolAPISecrets.lambdaAuthHeaderValue}
+    LOL_API_KEY: ${opt:lolApiKey, env:LOL_API_KEY, self:custom.lolAPISecrets.lolApiKey}
+    LOL_API_ENDPOINT: ${opt:lolApiEndpoint, env:LOL_API_ENDPOINT, self:custom.lolAPISecrets.lolApiEndpoint}
+    DATA_DRAGON_CDN: ${opt:dataDragonCdn, env:DATA_DRAGON_CDN, self:custom.lolAPISecrets.dataDragonCdn}
+    CACHE_NAMESPACE: ${opt:cacheNamespace, env:CACHE_NAMESPACE, self:custom.lolAPISecrets.cacheNamespace}
+    CACHE_REDIS_HOST: ${opt:redisHost, env:CACHE_REDIS_HOST, self:custom.lolAPISecrets.redisHost}
+    MONGODB_URI: ${opt:mongodbUri, env:MONGODB_URI, self:custom.lolAPISecrets.mongodbUri}
+    MONGODB_DBNAME: ${opt:mongodbDbName, env:MONGODB_DBNAME, self:custom.lolAPISecrets.mongodbDbName}
+    MONGODB_COLLECTION_NAME: ${opt:mongodbDbCollectionName, env:MONGODB_COLLECTION_NAME, self:custom.lolAPISecrets.mongodbDbCollectionName}
   apiGateway:
     restApiId: ${opt:restApiId, self:custom.lolAPISecrets.restApiId, null}
     restApiRootResourceId: ${opt:restApiRootResourceId, self:custom.lolAPISecrets.restApiRootResourceId, null}
