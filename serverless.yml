@@ -96,3 +96,10 @@ functions:
           path: /get-summoner-details
           method: get
           cors: ${self:custom.cors}
+  getChampions:
+    handler: functions/get-champions.handler
+    events:
+      - http:
+          path: /get-champions
+          method: get
+          cors: ${self:custom.cors}
